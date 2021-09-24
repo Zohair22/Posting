@@ -25,7 +25,7 @@ class MessageFactory extends Factory
     {
         return [
             'body'=> $this->faker->text(),
-            'user_id'=> User::factory(),
+            'auth'=> User::factory(),
             'receiver'=> User::factory(),
         ];
     }

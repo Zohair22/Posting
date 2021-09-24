@@ -23,7 +23,7 @@ class FollowsFactory extends Factory
     public function definition()
     {
         return [
-            'user_id'=> User::factory(),
+            'auth'=> User::factory(),
             'followed'=> User::factory(),
         ];
     }

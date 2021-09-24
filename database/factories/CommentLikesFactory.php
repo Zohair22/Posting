@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Comment;
 use App\Models\CommentLikes;
-use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -25,7 +25,7 @@ class CommentLikesFactory extends Factory
     {
         return [
             'user_id'=> User::factory(),
-            'comment_id'=> Post::factory(),
+            'comment_id'=> Comment::factory(),
         ];
     }
 }
