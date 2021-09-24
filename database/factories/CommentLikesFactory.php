@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\CommentLikes;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CommentLikesFactory extends Factory
@@ -22,7 +24,8 @@ class CommentLikesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id'=> User::factory(),
+            'comment_id'=> Post::factory(),
         ];
     }
 }

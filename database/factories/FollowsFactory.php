@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Follows;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class FollowsFactory extends Factory
@@ -22,7 +23,8 @@ class FollowsFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'user_id'=> User::factory(),
+            'followed'=> User::factory(),
         ];
     }
 }

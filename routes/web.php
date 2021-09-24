@@ -12,8 +12,15 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+chat % git add .
+git commit -m "existing file"
+git push
+
 */
+
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('/',[Controller::class, 'index'])->name('dashboard');
+
 });

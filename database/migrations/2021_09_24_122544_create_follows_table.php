@@ -15,6 +15,10 @@ class CreateFollowsTable extends Migration
     {
         Schema::create('follows', function (Blueprint $table) {
             $table->id();
+            $table->boolean('accepted')->default(0);
+            $table->boolean('block')->default(0);
+            $table->foreignId('auth')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('followed')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }

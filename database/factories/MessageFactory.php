@@ -2,17 +2,19 @@
 
 namespace Database\Factories;
 
-use App\Models\messages;
+use App\Models\message;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class MessagesFactory extends Factory
+class MessageFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = messages::class;
+    protected $model = message::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +24,9 @@ class MessagesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'body'=> $this->faker->text(),
+            'user_id'=> User::factory(),
+            'receiver'=> User::factory(),
         ];
     }
 }
