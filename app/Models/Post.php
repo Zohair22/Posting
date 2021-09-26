@@ -27,4 +27,15 @@ class Post extends Model
     {
         return $this->hasMany(PostLikes::class, 'post_id');
     }
+
+    public function postLikeCount()
+    {
+        return $this->postLikes()->count();
+    }
+
+    public function userLikeIt()
+    {
+        return $this->postLikes()
+            ->where('user_id', auth()->id())->get('id');
+    }
 }

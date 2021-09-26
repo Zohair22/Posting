@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -15,7 +16,7 @@ class Controller extends BaseController
     public function index()
     {
         $users = User::all();
-        $posts = auth()->user();
-        return view('dashboard');
+        $posts = Post::latest()->get();
+        return view('dashboard', compact('posts'));
     }
 }

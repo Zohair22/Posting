@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostLikesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +24,9 @@ git push
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('/',[Controller::class, 'index'])->name('dashboard');
+    Route::post('/post',[PostController::class, 'store'])->name('poster');
+    Route::post('/post/{post}',[PostLikesController::class, 'store'])->name('likePost');
+    Route::delete('/postLike/{post}',[PostLikesController::class, 'destroy'])
+        ->name('dislikePost');
 
 });
