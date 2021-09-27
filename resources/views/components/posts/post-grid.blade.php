@@ -7,7 +7,7 @@
              style="max-height: 2.75rem !important;"
              width="45">
     </div>
-    <div class="ml-3">
+    <div class="ml-2">
         <h1 class="font-bold text-md p-0 m-0">
             {{ $post->user->name }}
             <span class="text-xs font-mono text-gray-400 m-0 p-0 block">
@@ -18,14 +18,14 @@
 </div>
 <div class="px-14 py-4">
     @if(isset($post->body))
-        <span class="text-gray-500 text-sm space-y-6 font-bold">{!! $post->body !!}</span>
+        <span class="text-gray-600 text-sm space-y-6 font-bold">{!! $post->body !!}</span>
     @endif
     @if(isset($post->thumbnail))
         <img
             src="{{ asset('storage/' . $post->thumbnail ) }}"
             alt="profile"
             class="rounded-3xl w-full mt-5 object-scale-down"
-            style="max-height: 20rem;"
+            style="max-height: 30rem;"
         >
     @endif
 </div>

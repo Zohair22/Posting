@@ -1,17 +1,19 @@
 
 
-<div class="">
+
+
+<div class="p-0">
     <?php
-    if ($post->userLikeIt()->count() > 0)
+    if ($comment->userLikeIt()->count() > 0)
     {
         $action =  'dislikePost';
-        foreach($post->userLikeIt() as $like)
+        foreach($comment->userLikeIt() as $like)
         {
             $id = $like->id;
         }
     }else{
         $action =  'likePost';
-        $id = $post->id;
+        $id = $comment->id;
     }
     ?>
     <form
@@ -19,12 +21,12 @@
         method="post"
     >
         @csrf
-        @if ($post->userLikeIt()->count() > 0)
+        @if ($comment->userLikeIt()->count() > 0)
             @method('DELETE')
         @endif
-        <button type="submit" class="{{ $post->userLikeIt()->count() ? 'text-red-500' : '' }} hover:text-red-500">
+        <button type="submit" class="{{ $comment->userLikeIt()->count() ? 'text-red-500' : '' }} hover:text-red-500">
             <i class="far fa-thumbs-up"></i>
-            {{ $post->postLikeCount() }}
+            {{ $comment->postLikeCount() }}
         </button>
     </form>
 </div>

@@ -20,7 +20,7 @@ class Post extends Model
 
     public function comments() : HasMany
     {
-        return $this->hasMany(Comment::class, 'comment_id');
+        return $this->hasMany(Comment::class, 'post_id');
     }
 
     public function postLikes() : HasMany

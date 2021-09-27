@@ -26,4 +26,15 @@ class Comment extends Model
     {
         return $this->hasMany(CommentLikes::class, 'comment_id');
     }
+
+    public function postLikeCount()
+    {
+        return $this->commentLikes()->count();
+    }
+
+    public function userLikeIt()
+    {
+        return $this->commentLikes()
+            ->where('user_id', auth()->id())->get('id');
+    }
 }
