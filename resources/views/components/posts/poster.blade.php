@@ -1,7 +1,7 @@
 
 
 
-<div class="bg-white border-2 border-blue-400 rounded-3xl p-5">
+<div class="bg-white border-2 border-blue-400 rounded-3xl p-5 shadow-2xl">
     <form action="{{ route('poster') }}" method="post" enctype="multipart/form-data">
         @csrf
 
@@ -10,7 +10,7 @@
             <textarea
                 name="body"
                 id="body"
-                class='w-full px-4 py-2 rounded-xl resize-none form-textarea text-md bg-gray-50'
+                class='w-full shadow-xl px-4 py-2 rounded-xl resize-none form-textarea text-md bg-gray-50'
                 rows="3"
                 placeholder="What's Up Bro ..!"
             ></textarea>
@@ -25,13 +25,12 @@
         </div>
         @enderror
 
-        <div class='mt-3'>
+        <div class='mt-5'>
             <label
-                class="w-32 flex flex-col px-4 py-2 items-center bg-white rounded-md shadow-md tracking-wide uppercase
-              border border-blue cursor-pointer hover:bg-purple-600 hover:text-white text-purple-600 ease-linear
-              transition-all duration-150">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <span class="mt-2 text-xs leading-normal">Select a file</span>
+                class="w-24 flex flex-col py-2 px-3 bg-white border border-indigo-300 rounded-md shadow-xl
+                cursor-pointer hover:bg-indigo-500 hover:text-white text-indigo-500"
+            >
+                <span class="text-xs"><i class="fas fa-cloud-upload-alt mr-2"></i>Photo</span>
                 <input type='file' name="thumbnail" class="hidden" />
             </label>
         </div>
@@ -42,7 +41,11 @@
         @enderror
 
         <div class="mt-14 relative">
-            <x-jet-button class="px-12 py-1 text-md font-bold absolute bottom-0 right-0">POST</x-jet-button>
+            <x-jet-button
+                class="px-12 py-1 text-md font-bold absolute bottom-0 right-0 bg-indigo-600 hover:bg-indigo-800"
+            >
+                POST
+            </x-jet-button>
         </div>
 
     </form>
