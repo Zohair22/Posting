@@ -1,18 +1,17 @@
 
 
 
-
 <div class="p-0">
     <?php
     if ($comment->userLikeIt()->count() > 0)
     {
-        $action =  'dislikePost';
+        $action =  'dislikeComment';
         foreach($comment->userLikeIt() as $like)
         {
             $id = $like->id;
         }
     }else{
-        $action =  'likePost';
+        $action =  'likeComment';
         $id = $comment->id;
     }
     ?>

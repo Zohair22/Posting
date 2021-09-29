@@ -40,4 +40,5 @@ class PostLikesController extends Controller
         $postLike->delete();
         return back();
     }
+
 }

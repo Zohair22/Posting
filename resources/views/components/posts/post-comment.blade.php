@@ -4,10 +4,11 @@
     @if($post->comments->count() > 0)
         <x-comments.comments :post="$post"></x-comments.comments>
     @endif
-    <form action="" class="mt-2">
+    <form action="{{ route('comment', $post->id) }}" method="post" class="mt-2">
+        @csrf
         <x-jet-input
             name="body"
-            class="w-full border border-indigo-400 px-1 text-sm"
+            class="w-full border border-indigo-400 px-2 py-1 text-sm"
             placeholder="Leave a comment!."
         ></x-jet-input>
     </form>
