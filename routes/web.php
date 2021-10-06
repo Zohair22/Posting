@@ -27,7 +27,6 @@ git push
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('/',[Controller::class, 'index'])->name('dashboard');
-
     Route::post('/post',[PostController::class, 'store'])->name('poster');
 
     Route::post('/post/{post}',[PostLikesController::class, 'store'])->name('likePost');
