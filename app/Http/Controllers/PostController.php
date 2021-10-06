@@ -28,4 +28,10 @@ class PostController extends Controller
         }
         return back();
     }
+
+    public function destroy($id) : RedirectResponse
+    {
+        Post::findOrFail($id)->delete();
+        return back();
+    }
 }

@@ -28,10 +28,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('/',[Controller::class, 'index'])->name('dashboard');
     Route::post('/post',[PostController::class, 'store'])->name('poster');
+    Route::delete('/post/{post}/delete',[PostController::class, 'destroy'])->name('deletePost');
 
     Route::post('/post/{post}',[PostLikesController::class, 'store'])->name('likePost');
-    Route::delete('/postLike/{post}',[PostLikesController::class, 'destroy'])
-        ->name('dislikePost');
+    Route::delete('/postLike/{post}',[PostLikesController::class, 'destroy'])->name('dislikePost');
 
     Route::post('/post/{post}/comment',[CommentController::class, 'store'])->name('comment');
     Route::post('/comment/{comment}',[CommentLikesController::class, 'store'])->name('likeComment');
