@@ -17,15 +17,17 @@
             </h1>
         </div>
     </div>
-    <div>
-        <form action="{{ route('deletePost', $post->id) }}" method="post">
-            @csrf
-            @method('DELETE')
-            <button type="submit">
-                <i class="far fa-trash-alt text-red-400 hover:text-red-600"></i>
-            </button>
-        </form>
-    </div>
+    @if(auth()->id() === $post->user->id)
+        <div>
+            <form action="{{ route('deletePost', $post->id) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <button type="submit">
+                    <i class="far fa-trash-alt text-red-400 hover:text-red-600"></i>
+                </button>
+            </form>
+        </div>
+    @endif
 </div>
 
 <div class="px-14 py-4">

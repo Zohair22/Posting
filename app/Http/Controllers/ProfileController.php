@@ -16,6 +16,6 @@ class ProfileController extends Controller
     public function profile(User $user)
     {
         $posts = $user->posts()->latest()->get();
-        return view('profile.timeline', compact('posts'));
+        return view('profile.timeline', compact('posts','user'));
     }
 }

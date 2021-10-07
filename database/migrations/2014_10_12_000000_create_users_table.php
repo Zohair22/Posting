@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('username')->unique();
+            $table->string('about');
             $table->boolean('valid')->default(0);
             $table->boolean('can_post')->default(1);
             $table->boolean('can_comment')->default(1);
