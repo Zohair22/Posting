@@ -22,8 +22,8 @@
             </div>
             <div class="flex justify-between mt-4">
                 <div class="text-sm font-semibold">{{ $posts->count() }} Posts</div>
-                <div class="ml-4 text-sm font-semibold text-blue-600">{{ $posts->count() }} Followers</div>
-                <div class="ml-4 text-sm font-semibold text-blue-800">{{ $posts->count() }} Following</div>
+                <div class="ml-4 text-sm font-semibold text-blue-600">{{ $user->follower->count() }} Followers</div>
+                <div class="ml-4 text-sm font-semibold text-blue-800">{{ $user->follows->count() }} Following</div>
             </div>
             <div class="mt-4">
                 <h1 class="text-lg font-semibold">{{ $user->name }}</h1>

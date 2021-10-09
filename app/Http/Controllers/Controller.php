@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Follow;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -13,10 +14,10 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index()
+    public function index(User $user)
     {
-        $users = User::all();
-        $posts = Post::latest()->get();
+        $posts = $user->timeline();
+         Post::latest()->get();
         return view('dashboard', compact('posts'));
     }
 }

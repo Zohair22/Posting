@@ -71,4 +71,10 @@ class User extends Authenticatable
         return 'username';
     }
 
+    public function timeline()
+    {
+        $follows = auth()->user()->follows()->pluck('followed');
+        return Post::where('user_id', auth()->id())->orWhereIn('user_id', $follows)->latest()->get();
+    }
+
 }

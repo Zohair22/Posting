@@ -1,7 +1,7 @@
 
 
 
-<div class="bg-white border-2 border-blue-400 rounded-3xl p-5 shadow-lg">
+<div class="bg-white border-2 border-blue-200 rounded-3xl p-5 shadow-lg">
     <form action="{{ route('poster') }}" method="post" enctype="multipart/form-data">
         @csrf
 
