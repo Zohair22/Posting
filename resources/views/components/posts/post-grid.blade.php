@@ -2,21 +2,23 @@
 
 
 <div class="flex justify-between">
-    <div class="flex items-center">
-        <div>
-            <img src="{{ $post->user->profile_photo_url }}" alt="profile" class="rounded-full object-scale-down"
-                 style="max-height: 2.75rem !important;"
-                 width="45">
-        </div>
-        <div class="ml-2">
-            <h1 class="font-bold text-md p-0 m-0">
-                {{ $post->user->name }}
-                <span class="text-xs font-mono text-gray-400 m-0 p-0 block">
+    <a href="{{ route('profileTimeline', $post->user->username) }}">
+        <div class="flex items-center">
+            <div>
+                <img src="{{ $post->user->profile_photo_url }}" alt="profile" class="rounded-full object-scale-down"
+                     style="max-height: 2.75rem !important;"
+                     width="45">
+            </div>
+            <div class="ml-2">
+                <h1 class="font-bold text-md p-0 m-0">
+                    {{ $post->user->name }}
+                    <span class="text-xs font-mono text-gray-400 m-0 p-0 block">
                     {{ $post->created_at->diffForHumans()}}
                 </span>
-            </h1>
+                </h1>
+            </div>
         </div>
-    </div>
+    </a>
     @if(auth()->id() === $post->user->id)
         <div>
             <form action="{{ route('deletePost', $post->id) }}" method="post">

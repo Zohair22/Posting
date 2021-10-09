@@ -90,7 +90,7 @@
                                 {{ __('Manage Account') }}
                             </div>
 
-                            <x-jet-dropdown-link href="{{ route('profileTimeline', auth()->id()) }}">
+                            <x-jet-dropdown-link href="{{ route('profileTimeline', auth()->user()->username) }}">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
 
