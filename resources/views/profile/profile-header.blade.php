@@ -18,6 +18,14 @@
                             Edit Profile
                         </a>
                     </div>
+                @elseif(auth()->user()->following($user))
+                    <x-message-button></x-message-button>
+                    <x-unFollow-botton></x-unFollow-botton>
+                @else
+                    @if($user->valid)
+                        <x-message-button></x-message-button>
+                    @endif
+                    <x-follow-botton></x-follow-botton>
                 @endif
             </div>
             <div class="flex justify-between mt-4">

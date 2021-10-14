@@ -14,10 +14,9 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index(User $user)
+    public function index()
     {
-        $posts = $user->timeline();
-         Post::latest()->get();
+        $posts = auth()->user()->timeline();
         return view('dashboard', compact('posts'));
     }
 }
