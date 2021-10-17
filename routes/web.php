@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CommentLikesController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\FollowController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikesController;
 use App\Http\Controllers\ProfileController;
@@ -28,6 +29,9 @@ git push
 Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('/profile/{user}',[ProfileController::class, 'profile'])->name('profileTimeline');
+
+    Route::get('/follow/{user}',[FollowController::class, 'store'])->name('follow');
+    Route::get('/unFollow/{user}',[FollowController::class, 'delete'])->name('unFollow');
 
     Route::get('/',[Controller::class, 'index'])->name('dashboard');
     Route::post('/post',[PostController::class, 'store'])->name('poster');

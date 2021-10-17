@@ -19,13 +19,13 @@
                         </a>
                     </div>
                 @elseif(auth()->user()->following($user))
-                    <x-message-button></x-message-button>
-                    <x-unFollow-botton></x-unFollow-botton>
+                    <x-message-button :user="$user"></x-message-button>
+                    <x-unFollow-botton :user="$user"></x-unFollow-botton>
                 @else
                     @if($user->valid)
-                        <x-message-button></x-message-button>
+                        <x-message-button :user="$user"></x-message-button>
                     @endif
-                    <x-follow-botton></x-follow-botton>
+                    <x-follow-botton :user="$user"></x-follow-botton>
                 @endif
             </div>
             <div class="flex justify-between mt-4">

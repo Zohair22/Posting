@@ -14,7 +14,7 @@
                 rounded-3xl p-5">
                 This Account is Private
                 <br>
-                Follow to see their photos and videos.
+                Follow to see their Posts.
             </div>
         @endif
     </div>
