@@ -48,7 +48,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::delete('/commentLike/{comment}',[CommentLikesController::class, 'destroy'])->name('dislikeComment');
 
     Route::get('/message/{user}',[MessageController::class, 'messages'])->name('message');
-    Route::post('/message/{user}/send',[MessageController::class, 'send'])->name
-    ('sendMessage');
+    Route::post('/message/{user}/send',[MessageController::class, 'send'])->name('sendMessage');
 
 });
