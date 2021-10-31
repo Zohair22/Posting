@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Message extends Model
@@ -12,18 +13,19 @@ class Message extends Model
 
     protected $guarded = [];
 
-    public function users() : BelongsToMany
+    public function user() : BelongsTo
     {
-        return $this->belongsToMany(
+        return $this->belongsTo(
             User::class,
-            'users',
             'auth',
-            'receiver',
         );
     }
 
-    public function message()
+    public function message($id)
     {
-        return $this->where('auth',auth()->id())->where('receiver',$this->id)->get();
+       return $this->whereIn('auth', [auth()->id(), $id])->WhereIn('receiver',
+           [auth()->id(), $id])->orderBy('created_at', 'asc')->get();
     }
+
+
 }
