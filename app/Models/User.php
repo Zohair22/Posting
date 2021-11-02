@@ -78,4 +78,16 @@ class User extends Authenticatable
             ->latest()->get();
     }
 
+    public function scopeFilter($query, $filters) : void
+    {
+        /* search by Post */
+        $query->when(
+            $filters ?? false,
+            fn($query, $search) => $query->where(
+                fn($query) => $query->where('name', 'like', '%'.$search.'%')
+                    ->orWhere('username', 'like', '%'.$search.'%')
+            )
+        );
+    }
+
 }

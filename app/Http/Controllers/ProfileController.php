@@ -18,4 +18,10 @@ class ProfileController extends Controller
         $posts = $user->posts()->latest()->get();
         return view('profile.profile', compact('posts','user'));
     }
+
+    public function search(User $user)
+    {
+        $users = $user->latest()->filter(request('search'))->get();
+        return view('search', compact('users'));
+    }
 }

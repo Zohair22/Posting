@@ -8,6 +8,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikesController;
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,5 +50,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('/message/{user}',[MessageController::class, 'messages'])->name('message');
     Route::post('/message/{user}/send',[MessageController::class, 'send'])->name('sendMessage');
+
+
+    Route::get('/users',[ProfileController::class, 'search'])->name('search');
+
+
 
 });

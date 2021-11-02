@@ -1,9 +1,8 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow-lg">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+        <div class="flex justify-between h-16 items-center">
             <div class="flex">
-
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" class="font-bold" :active="request()->routeIs
@@ -12,6 +11,16 @@
                     </x-jet-nav-link>
                 </div>
             </div>
+
+            <form method="get" action="{{ route('search') }}" class="m-0 p-0">
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Find something"
+                    class="font-semibold text-sm rounded-3xl px-5 placeholder-gray-400"
+                    value="{{ request('search') }}"
+                >
+            </form>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
@@ -62,9 +71,9 @@
                             </x-slot>
                         </x-jet-dropdown>
                     </div>
-                @endif
+            @endif
 
-                <!-- Settings Dropdown -->
+            <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -108,7 +117,7 @@
                                 @csrf
 
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
-                                         onclick="event.preventDefault();
+                                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </x-jet-dropdown-link>
@@ -166,12 +175,12 @@
                     </x-jet-responsive-nav-link>
                 @endif
 
-                <!-- Authentication -->
+            <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
                     <x-jet-responsive-nav-link href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                                               onclick="event.preventDefault();
                                     this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-jet-responsive-nav-link>

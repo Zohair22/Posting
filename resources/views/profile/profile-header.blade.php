@@ -4,10 +4,10 @@
     <div class="flex p-4">
         <div>
             <img src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}"
-                 class="bg-blue-100 rounded-full h-48 w-48 object-scale-down">
+                 class="bg-blue-100 rounded-full h-36 w-36 object-scale-down">
         </div>
         <div class="ml-6 pt-5">
-            <div class="flex">
+            <div class="flex gap-6">
                 <h1 class="font-bold text-xl">{{ $user->username }}</h1>
                 @if(auth()->user()->id === $user->id)
                     <div class="ml-4">
