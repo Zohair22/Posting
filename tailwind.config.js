@@ -14,11 +14,19 @@ module.exports = {
 
     theme: {
         extend: {
+            transitionProperty: {
+                'height': 'height',
+                'spacing': 'margin, padding',
+            }  ,
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
     },
-
+    variants: {
+        extend: {
+            transitionProperty: ['hover', 'focus'],
+        }
+    },
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

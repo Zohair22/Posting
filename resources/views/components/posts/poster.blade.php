@@ -25,15 +25,16 @@
         </div>
         @enderror
 
-        <div class='mt-5'>
+        <div class='mt-5 relative'>
             <label
-                class="w-24 flex flex-col py-2 px-3 bg-white border border-indigo-300 rounded-md shadow-xl
+                class="w-28 flex flex-col py-2 px-3 bg-white border border-indigo-300 rounded-md shadow-xl
                 cursor-pointer hover:bg-indigo-500 hover:text-white text-indigo-500"
             >
-                <span class="text-xs"><i class="fas fa-cloud-upload-alt mr-2"></i>Photo</span>
+                <span class="text-sm font-bold"><i class="fas fa-cloud-upload-alt mr-2"></i>Photo</span>
                 <input type='file' name="thumbnail" class="hidden" />
             </label>
         </div>
+
         @error('thumbnail')
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-1 text-sm rounded mt-3" role="alert">
             <span class="font-bold">{{ $message }}</span>
@@ -41,11 +42,12 @@
         @enderror
 
         <div class="mt-14 relative">
-            <x-jet-button
-                class="px-12 py-1 text-md font-bold absolute bottom-0 right-0 bg-indigo-600 hover:bg-indigo-800"
+            <button type="submit"
+                class="px-8 py-1 font-bold text-white rounded-3xl absolute bottom-0 right-0 bg-indigo-500
+                hover:bg-indigo-800"
             >
                 POST
-            </x-jet-button>
+            </button>
         </div>
 
     </form>
