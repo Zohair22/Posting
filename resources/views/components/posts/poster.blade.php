@@ -1,7 +1,7 @@
 
 
 
-<div class="bg-white border-2 border-blue-200 rounded-3xl p-5 shadow-lg">
+<div class="bg-white border-2 border-blue-400 rounded-3xl p-5 shadow-lg">
     <form action="{{ route('poster') }}" method="post" enctype="multipart/form-data">
         @csrf
 
@@ -10,7 +10,8 @@
             <textarea
                 name="body"
                 id="body"
-                class='w-full shadow-xl px-4 py-2 rounded-xl resize-none form-textarea text-md bg-gray-50'
+                class='w-full shadow-xl px-4 py-2 rounded-xl resize-none form-textarea text-md border-2 border-blue-200
+                bg-gray-100'
                 rows="3"
                 placeholder="What's Up Bro ..!"
             ></textarea>
@@ -42,11 +43,12 @@
         @enderror
 
         <div class="mt-14 relative">
-            <button type="submit"
-                class="px-8 py-1 font-bold text-white rounded-3xl absolute bottom-0 right-0 bg-indigo-500
+            <button
+                type="submit"
+                class="px-8 py-1 font-bold text-sm text-white rounded-3xl absolute bottom-0 right-0 bg-indigo-500
                 hover:bg-indigo-800"
             >
-                POST
+                Post
             </button>
         </div>
 

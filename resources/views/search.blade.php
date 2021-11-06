@@ -27,8 +27,8 @@
                     </a>
 
                     <div>
-                        @if(auth()->user()->following($user) or auth()->id() === $user->id)
-                            @if(auth()->user()->following($user))
+                        @if(auth()->user()->following($user) or auth()->id() === $user->id or auth()->user()->iRequestFollow($user))
+                            @if(auth()->user()->following($user) or auth()->user()->iRequestFollow($user))
                                 <x-unFollow-botton :user="$user"></x-unFollow-botton>
                             @endif
                         @else

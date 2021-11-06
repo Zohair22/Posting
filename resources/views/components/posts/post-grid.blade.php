@@ -40,8 +40,7 @@
         <img
             src="{{ asset('storage/' . $post->thumbnail ) }}"
             alt="profile"
-            class="rounded-3xl w-full mt-5 object-scale-down"
-            style="max-height: 30rem;"
+            class="mt-5 mx-auto object-scale-down sm:max-h-96 rounded-3xl"
         >
     @endif
 </div>

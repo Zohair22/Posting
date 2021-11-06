@@ -2,11 +2,11 @@
 
 <x-app-layout>
     <div class="py-12 bg-fixed">
-        <div class="grid grid-cols-12">
+        <div class="grid grid-cols-16 gap-4">
             @if(auth()->user()->follows)
                 <x-left-side></x-left-side>
             @endif
-            <div class="sm:px-6 lg:px-8 col-span-7">
+            <div class="sm:px-6 lg:px-8 col-span-9">
                 <x-posts.poster></x-posts.poster>
                 <x-posts.posts :posts="$posts"></x-posts.posts>
             </div>

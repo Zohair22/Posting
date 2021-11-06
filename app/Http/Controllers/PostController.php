@@ -13,7 +13,7 @@ class PostController extends Controller
         $attributes = $request->validate([
             'body' => '',
             'user_id' => '',
-            'thumbnail' => 'mimes:jpeg,jpg,png,gif',
+            'thumbnail' => ['image'],
         ]);
 
         $attributes['user_id'] = auth()->id();

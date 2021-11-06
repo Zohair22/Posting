@@ -1,13 +1,30 @@
 
 
-<div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
-    <div class="flex p-4">
+<div class="max-w-xl mx-auto sm:px-6 lg:px-8">
+    @if(auth()->user()->myRequestFollow($user))
+        <div class="m-2 flex justify-between">
+            <div></div>
+            <form
+                action="{{ route('acceptFollow') }}"
+                  method="post">
+                @csrf
+                @method('PATCH')
+                <button
+                    type="submit"
+                    class="bg-indigo-700 hover:bg-indigo-800 text-white border px-4 py-1 text-sm font-semibold rounded-3xl"
+                >
+                    Accept request follow
+                </button>
+            </form>
+        </div>
+    @endif
+    <div class="flex p-2">
         <div>
             <img src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}"
-                 class="bg-blue-100 rounded-full h-36 w-36 object-scale-down">
+                 class="bg-blue-200 rounded-full h-24 w-24 object-scale-down">
         </div>
-        <div class="ml-6 pt-5">
-            <div class="flex gap-6">
+        <div class="ml-6 pt-5 flex-1">
+            <div class="flex justify-between">
                 <h1 class="font-bold text-xl">{{ $user->username }}</h1>
                 @if(auth()->user()->id === $user->id)
                     <div class="ml-4">

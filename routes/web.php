@@ -40,6 +40,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     Route::get('/follow/{user}',[FollowController::class, 'store'])->name('follow');
     Route::get('/unFollow/{user}',[FollowController::class, 'delete'])->name('unFollow');
+    Route::patch('/acceptFollow/',[FollowController::class, 'acceptFollow'])->name('acceptFollow');
 
     Route::post('/post/{post}',[PostLikesController::class, 'store'])->name('likePost');
     Route::delete('/postLike/{post}',[PostLikesController::class, 'destroy'])->name('dislikePost');
